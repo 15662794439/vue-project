@@ -29,17 +29,17 @@
       </el-form-item>
 
       <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
-        <el-form-item prop="password">
+        <el-form-item prop="pwd">
           <span class="svg-container">
             <svg-icon icon-class="password" />
           </span>
           <el-input
             :key="passwordType"
-            ref="password"
-            v-model="loginForm.password"
+            ref="pwd"
+            v-model="loginForm.pwd"
             :type="passwordType"
             placeholder="Password"
-            name="password"
+            name="pwd"
             tabindex="2"
             autocomplete="on"
             @keyup.native="checkCapslock"
@@ -110,12 +110,14 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: 'admin'
+        username: 'admin1',
+        pwd: 'admin1',
+        deviceId: '1',
+        deviceName: '电脑'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        pwd: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       passwordType: 'password',
       capsTooltip: false,
@@ -144,8 +146,8 @@ export default {
     if (this.loginForm.username === '') {
       this.$refs.username.focus()
       console.log('focus', this.$refs.username.focus())
-    } else if (this.loginForm.password === '') {
-      this.$refs.password.focus()
+    } else if (this.loginForm.pwd === '') {
+      this.$refs.pwd.focus()
     }
   },
   destroyed() {
@@ -163,7 +165,7 @@ export default {
         this.passwordType = 'password'
       }
       this.$nextTick(() => {
-        this.$refs.password.focus()
+        this.$refs.pwd.focus()
       })
     },
     handleLogin() {
