@@ -3,9 +3,9 @@
     <el-form ref="postForm" :model="postForm" :rules="rules" class="form-container">
 
       <sticky :z-index="10" :class-name="'sub-navbar '+postForm.status">
-        <CommentDropdown v-model="postForm.comment_disabled"/>
-        <PlatformDropdown v-model="postForm.platforms"/>
-        <SourceUrlDropdown v-model="postForm.source_uri"/>
+        <CommentDropdown v-model="postForm.comment_disabled" />
+        <PlatformDropdown v-model="postForm.platforms" />
+        <SourceUrlDropdown v-model="postForm.source_uri" />
         <el-button v-loading="loading" style="margin-left: 10px;" type="success" @click="submitForm">
           Publish
         </el-button>
@@ -16,7 +16,7 @@
 
       <div class="createPost-main-container">
         <el-row>
-          <Warning/>
+          <Warning />
 
           <el-col :span="24">
             <el-form-item style="margin-bottom: 40px;" prop="title">
@@ -29,17 +29,27 @@
               <el-row>
                 <el-col :span="8">
                   <el-form-item label-width="60px" label="Author:" class="postInfo-container-item">
-                    <el-select v-model="postForm.author" :remote-method="getRemoteUserList" filterable
-                               default-first-option remote placeholder="Search user">
-                      <el-option v-for="(item,index) in userListOptions" :key="item+index" :label="item" :value="item"/>
+                    <el-select
+                      v-model="postForm.author"
+                      :remote-method="getRemoteUserList"
+                      filterable
+                      default-first-option
+                      remote
+                      placeholder="Search user"
+                    >
+                      <el-option v-for="(item,index) in userListOptions" :key="item+index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="10">
                   <el-form-item label-width="120px" label="Publish Time:" class="postInfo-container-item">
-                    <el-date-picker v-model="displayTime" type="datetime" format="yyyy-MM-dd HH:mm:ss"
-                                    placeholder="Select date and time"/>
+                    <el-date-picker
+                      v-model="displayTime"
+                      type="datetime"
+                      format="yyyy-MM-dd HH:mm:ss"
+                      placeholder="Select date and time"
+                    />
                   </el-form-item>
                 </el-col>
 
@@ -61,17 +71,23 @@
         </el-row>
 
         <el-form-item style="margin-bottom: 40px;" label-width="70px" label="Summary:">
-          <el-input v-model="postForm.content_short" :rows="1" type="textarea" class="article-textarea" autosize
-                    placeholder="Please enter the content"/>
+          <el-input
+            v-model="postForm.content_short"
+            :rows="1"
+            type="textarea"
+            class="article-textarea"
+            autosize
+            placeholder="Please enter the content"
+          />
           <span v-show="contentShortLength" class="word-counter">{{ contentShortLength }}words</span>
         </el-form-item>
 
         <el-form-item prop="content" style="margin-bottom: 30px;">
-          <Tinymce ref="editor" v-model="postForm.content" :height="400"/>
+          <Tinymce ref="editor" v-model="postForm.content" :height="400" />
         </el-form-item>
 
         <el-form-item prop="image_uri" style="margin-bottom: 30px;">
-          <Upload v-model="postForm.image_uri"/>
+          <Upload v-model="postForm.image_uri" />
         </el-form-item>
       </div>
     </el-form>
@@ -83,11 +99,11 @@ import Tinymce from '@/components/Tinymce'
 import Upload from '@/components/Upload/SingleImage3'
 import MDinput from '@/components/MDinput'
 import Sticky from '@/components/Sticky' // 粘性header组件
-import {validURL} from '@/utils/validate'
-import {fetchArticle} from '@/api/article'
-import {searchUser} from '@/api/remote-search'
+import { validURL } from '@/utils/validate'
+import { fetchArticle } from '@/api/article'
+import { searchUser } from '@/api/remote-search'
 import Warning from './Warning'
-import {CommentDropdown, PlatformDropdown, SourceUrlDropdown} from './Dropdown'
+import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown'
 
 const defaultForm = {
   status: 'draft',
@@ -105,7 +121,7 @@ const defaultForm = {
 
 export default {
   name: 'ArticleDetail',
-  components: {Tinymce, MDinput, Upload, Sticky, Warning, CommentDropdown, PlatformDropdown, SourceUrlDropdown},
+  components: { Tinymce, MDinput, Upload, Sticky, Warning, CommentDropdown, PlatformDropdown, SourceUrlDropdown },
   props: {
     isEdit: {
       type: Boolean,
@@ -144,10 +160,10 @@ export default {
       loading: false,
       userListOptions: [],
       rules: {
-        image_uri: [{validator: validateRequire}],
-        title: [{validator: validateRequire}],
-        content: [{validator: validateRequire}],
-        source_uri: [{validator: validateSourceUri, trigger: 'blur'}]
+        image_uri: [{ validator: validateRequire }],
+        title: [{ validator: validateRequire }],
+        content: [{ validator: validateRequire }],
+        source_uri: [{ validator: validateSourceUri, trigger: 'blur' }]
       },
       tempRoute: {}
     }
@@ -200,7 +216,7 @@ export default {
     },
     setTagsViewTitle() {
       const title = 'Edit Article'
-      const route = Object.assign({}, this.tempRoute, {title: `${title}-${this.postForm.id}`})
+      const route = Object.assign({}, this.tempRoute, { title: `${title}-${this.postForm.id}` })
       this.$store.dispatch('tagsView/updateVisitedView', route)
     },
     setPageTitle() {

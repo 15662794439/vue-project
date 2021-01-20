@@ -7,8 +7,8 @@
         type="checkbox"
         @change="toggleTodo( todo)"
       >
-      <label @dblclick="editing = true" v-text="todo.text"/>
-      <button class="destroy" @click="deleteTodo( todo )"/>
+      <label @dblclick="editing = true" v-text="todo.text" />
+      <button class="destroy" @click="deleteTodo( todo )" />
     </div>
     <input
       v-show="editing"
@@ -26,7 +26,7 @@
 export default {
   name: 'Todo',
   directives: {
-    focus(el, {value}, {context}) {
+    focus(el, { value }, { context }) {
       if (value) {
         context.$nextTick(() => {
           el.focus()
@@ -37,7 +37,7 @@ export default {
   props: {
     todo: {
       type: Object,
-      default: function () {
+      default: function() {
         return {}
       }
     }
@@ -51,15 +51,15 @@ export default {
     deleteTodo(todo) {
       this.$emit('deleteTodo', todo)
     },
-    editTodo({todo, value}) {
-      this.$emit('editTodo', {todo, value})
+    editTodo({ todo, value }) {
+      this.$emit('editTodo', { todo, value })
     },
     toggleTodo(todo) {
       this.$emit('toggleTodo', todo)
     },
     doneEdit(e) {
       const value = e.target.value.trim()
-      const {todo} = this
+      const { todo } = this
       if (!value) {
         this.deleteTodo({
           todo

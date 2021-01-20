@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}"/>
+  <div :id="id" :class="className" :style="{height:height,width:width}" />
 </template>
 
 <script>
@@ -44,7 +44,7 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
-      const xData = (function () {
+      const xData = (function() {
         const data = []
         for (let i = 1; i < 13; i++) {
           data.push(i + 'month')
@@ -199,71 +199,71 @@ export default {
           ]
         },
 
-          {
-            name: 'male',
-            type: 'bar',
-            stack: 'total',
-            itemStyle: {
-              normal: {
-                color: 'rgba(0,191,183,1)',
-                barBorderRadius: 0,
-                label: {
-                  show: true,
-                  position: 'top',
-                  formatter(p) {
-                    return p.value > 0 ? p.value : ''
-                  }
+        {
+          name: 'male',
+          type: 'bar',
+          stack: 'total',
+          itemStyle: {
+            normal: {
+              color: 'rgba(0,191,183,1)',
+              barBorderRadius: 0,
+              label: {
+                show: true,
+                position: 'top',
+                formatter(p) {
+                  return p.value > 0 ? p.value : ''
                 }
               }
-            },
-            data: [
-              327,
-              1776,
-              507,
-              1200,
-              800,
-              482,
-              204,
-              1390,
-              1001,
-              951,
-              381,
-              220
-            ]
-          }, {
-            name: 'average',
-            type: 'line',
-            stack: 'total',
-            symbolSize: 10,
-            symbol: 'circle',
-            itemStyle: {
-              normal: {
-                color: 'rgba(252,230,48,1)',
-                barBorderRadius: 0,
-                label: {
-                  show: true,
-                  position: 'top',
-                  formatter(p) {
-                    return p.value > 0 ? p.value : ''
-                  }
+            }
+          },
+          data: [
+            327,
+            1776,
+            507,
+            1200,
+            800,
+            482,
+            204,
+            1390,
+            1001,
+            951,
+            381,
+            220
+          ]
+        }, {
+          name: 'average',
+          type: 'line',
+          stack: 'total',
+          symbolSize: 10,
+          symbol: 'circle',
+          itemStyle: {
+            normal: {
+              color: 'rgba(252,230,48,1)',
+              barBorderRadius: 0,
+              label: {
+                show: true,
+                position: 'top',
+                formatter(p) {
+                  return p.value > 0 ? p.value : ''
                 }
               }
-            },
-            data: [
-              1036,
-              3693,
-              2962,
-              3810,
-              2519,
-              1915,
-              1748,
-              4675,
-              6209,
-              4323,
-              2865,
-              4298
-            ]
-          }
+            }
+          },
+          data: [
+            1036,
+            3693,
+            2962,
+            3810,
+            2519,
+            1915,
+            1748,
+            4675,
+            6209,
+            4323,
+            2865,
+            4298
+          ]
+        }
         ]
       })
     }

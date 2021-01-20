@@ -3,7 +3,7 @@
     <sticky :z-index="10" class-name="sub-navbar">
       <el-dropdown trigger="click">
         <el-button plain>
-          Platform<i class="el-icon-caret-bottom el-icon--right"/>
+          Platform<i class="el-icon-caret-bottom el-icon--right" />
         </el-button>
         <el-dropdown-menu slot="dropdown" class="no-border">
           <el-checkbox-group v-model="platforms" style="padding: 5px 15px;">
@@ -16,7 +16,7 @@
 
       <el-dropdown trigger="click">
         <el-button plain>
-          Link<i class="el-icon-caret-bottom el-icon--right"/>
+          Link<i class="el-icon-caret-bottom el-icon--right" />
         </el-button>
         <el-dropdown-menu slot="dropdown" class="no-padding no-border" style="width:300px">
           <el-input v-model="url" placeholder="Please enter the content">
@@ -28,7 +28,7 @@
       </el-dropdown>
 
       <div class="time-container">
-        <el-date-picker v-model="time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Release time"/>
+        <el-date-picker v-model="time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Release time" />
       </div>
 
       <el-button style="margin-left: 10px;" type="success">
@@ -103,16 +103,16 @@ import Sticky from '@/components/Sticky'
 
 export default {
   name: 'StickyDemo',
-  components: {Sticky},
+  components: { Sticky },
   data() {
     return {
       time: '',
       url: '',
       platforms: ['a-platform'],
       platformsOptions: [
-        {key: 'a-platform', name: 'platformA'},
-        {key: 'b-platform', name: 'platformB'},
-        {key: 'c-platform', name: 'platformC'}
+        { key: 'a-platform', name: 'platformA' },
+        { key: 'b-platform', name: 'platformB' },
+        { key: 'c-platform', name: 'platformC' }
       ],
       pickerOptions: {
         disabledDate(time) {

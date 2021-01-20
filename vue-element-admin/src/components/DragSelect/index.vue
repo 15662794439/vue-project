@@ -1,6 +1,6 @@
 <template>
   <el-select ref="dragSelect" v-model="selectVal" v-bind="$attrs" class="drag-select" multiple v-on="$listeners">
-    <slot/>
+    <slot />
   </el-select>
 </template>
 
@@ -33,7 +33,7 @@ export default {
       const el = this.$refs.dragSelect.$el.querySelectorAll('.el-select__tags > span')[0]
       this.sortable = Sortable.create(el, {
         ghostClass: 'sortable-ghost', // Class name for the drop placeholder,
-        setData: function (dataTransfer) {
+        setData: function(dataTransfer) {
           dataTransfer.setData('Text', '')
           // to avoid Firefox bug
           // Detail see : https://github.com/RubaXa/Sortable/issues/1012

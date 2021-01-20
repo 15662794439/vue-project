@@ -8,7 +8,7 @@
       >json-lint</a>.
     </aside>
     <div class="editor-container">
-      <json-editor ref="jsonEditor" v-model="value"/>
+      <json-editor ref="jsonEditor" v-model="value" />
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"mar
 
 export default {
   name: 'JsonEditorDemo',
-  components: {JsonEditor},
+  components: { JsonEditor },
   data() {
     return {
       value: JSON.parse(jsonData)

@@ -7,15 +7,15 @@
     </aside>
     <split-pane split="vertical" @resize="resize">
       <template slot="paneL">
-        <div class="left-container"/>
+        <div class="left-container" />
       </template>
       <template slot="paneR">
         <split-pane split="horizontal">
           <template slot="paneL">
-            <div class="top-container"/>
+            <div class="top-container" />
           </template>
           <template slot="paneR">
-            <div class="bottom-container"/>
+            <div class="bottom-container" />
           </template>
         </split-pane>
       </template>
@@ -28,7 +28,7 @@ import splitPane from 'vue-splitpane'
 
 export default {
   name: 'SplitpaneDemo',
-  components: {splitPane},
+  components: { splitPane },
   methods: {
     resize() {
       console.log('resize')

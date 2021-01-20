@@ -33,7 +33,7 @@
 
     <el-table-column width="120px" label="Importance">
       <template slot-scope="scope">
-        <svg-icon v-for="n in +scope.row.importance" :key="n" icon-class="star"/>
+        <svg-icon v-for="n in +scope.row.importance" :key="n" icon-class="star" />
       </template>
     </el-table-column>
 
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import {fetchList} from '@/api/article'
+import { fetchList } from '@/api/article'
 
 export default {
   filters: {

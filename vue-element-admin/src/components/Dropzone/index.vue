@@ -109,7 +109,7 @@ export default {
         if (Array.isArray(val)) {
           if (val.length === 0) return
           val.map((v, i) => {
-            const mockFile = {name: 'name' + i, size: 12345, url: v}
+            const mockFile = { name: 'name' + i, size: 12345, url: v }
             this.options.addedfile.call(this, mockFile)
             this.options.thumbnail.call(this, mockFile, v)
             mockFile.previewElement.classList.add('dz-success')
@@ -118,7 +118,7 @@ export default {
             return true
           })
         } else {
-          const mockFile = {name: 'name', size: 12345, url: val}
+          const mockFile = { name: 'name', size: 12345, url: val }
           this.options.addedfile.call(this, mockFile)
           this.options.thumbnail.call(this, mockFile, val)
           mockFile.previewElement.classList.add('dz-success')
@@ -185,7 +185,7 @@ export default {
       if (!val) return
       if (Array.isArray(val)) {
         val.map((v, i) => {
-          const mockFile = {name: 'name' + i, size: 12345, url: v}
+          const mockFile = { name: 'name' + i, size: 12345, url: v }
           this.dropzone.options.addedfile.call(this.dropzone, mockFile)
           this.dropzone.options.thumbnail.call(this.dropzone, mockFile, v)
           mockFile.previewElement.classList.add('dz-success')
@@ -193,7 +193,7 @@ export default {
           return true
         })
       } else {
-        const mockFile = {name: 'name', size: 12345, url: val}
+        const mockFile = { name: 'name', size: 12345, url: val }
         this.dropzone.options.addedfile.call(this.dropzone, mockFile)
         this.dropzone.options.thumbnail.call(this.dropzone, mockFile, val)
         mockFile.previewElement.classList.add('dz-success')

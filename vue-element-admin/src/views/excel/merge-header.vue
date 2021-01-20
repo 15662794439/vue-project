@@ -1,8 +1,13 @@
 <template>
   <div class="app-container">
 
-    <el-button :loading="downloadLoading" style="margin-bottom:20px" type="primary" icon="el-icon-document"
-               @click="handleDownload">Export
+    <el-button
+      :loading="downloadLoading"
+      style="margin-bottom:20px"
+      type="primary"
+      icon="el-icon-document"
+      @click="handleDownload"
+    >Export
     </el-button>
 
     <el-table
@@ -38,7 +43,7 @@
       </el-table-column>
       <el-table-column align="center" label="Date" width="220">
         <template slot-scope="scope">
-          <i class="el-icon-time"/>
+          <i class="el-icon-time" />
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
@@ -48,8 +53,8 @@
 </template>
 
 <script>
-import {fetchList} from '@/api/article'
-import {parseTime} from '@/utils'
+import { fetchList } from '@/api/article'
+import { parseTime } from '@/utils'
 
 export default {
   name: 'MergeHeader',

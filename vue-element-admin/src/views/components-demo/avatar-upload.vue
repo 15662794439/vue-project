@@ -6,10 +6,14 @@
       myself, and if you are going to use it, it is better to use official version.
     </aside>
 
-    <pan-thumb :image="image"/>
+    <pan-thumb :image="image" />
 
-    <el-button type="primary" icon="el-icon-upload" style="position: absolute;bottom: 15px;margin-left: 40px;"
-               @click="imagecropperShow=true">
+    <el-button
+      type="primary"
+      icon="el-icon-upload"
+      style="position: absolute;bottom: 15px;margin-left: 40px;"
+      @click="imagecropperShow=true"
+    >
       Change Avatar
     </el-button>
 
@@ -32,7 +36,7 @@ import PanThumb from '@/components/PanThumb'
 
 export default {
   name: 'AvatarUploadDemo',
-  components: {ImageCropper, PanThumb},
+  components: { ImageCropper, PanThumb },
   data() {
     return {
       imagecropperShow: false,

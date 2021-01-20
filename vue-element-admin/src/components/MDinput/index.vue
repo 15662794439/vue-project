@@ -1,7 +1,7 @@
 <template>
   <div :class="computedClasses" class="material-input__component">
     <div :class="{iconClass:icon}">
-      <i v-if="icon" :class="['el-icon-' + icon]" class="el-input__icon material-input__icon"/>
+      <i v-if="icon" :class="['el-icon-' + icon]" class="el-input__icon material-input__icon" />
       <input
         v-if="type === 'email'"
         v-model="currentValue"
@@ -101,9 +101,9 @@
         @blur="handleMdBlur"
         @input="handleModelInput"
       >
-      <span class="material-input-bar"/>
+      <span class="material-input-bar" />
       <label class="material-label">
-        <slot/>
+        <slot />
       </label>
     </div>
   </div>

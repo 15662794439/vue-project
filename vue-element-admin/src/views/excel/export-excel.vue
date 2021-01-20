@@ -2,15 +2,23 @@
   <div class="app-container">
 
     <div>
-      <FilenameOption v-model="filename"/>
-      <AutoWidthOption v-model="autoWidth"/>
-      <BookTypeOption v-model="bookType"/>
-      <el-button :loading="downloadLoading" style="margin:0 0 20px 20px;" type="primary" icon="el-icon-document"
-                 @click="handleDownload">
+      <FilenameOption v-model="filename" />
+      <AutoWidthOption v-model="autoWidth" />
+      <BookTypeOption v-model="bookType" />
+      <el-button
+        :loading="downloadLoading"
+        style="margin:0 0 20px 20px;"
+        type="primary"
+        icon="el-icon-document"
+        @click="handleDownload"
+      >
         Export Excel
       </el-button>
-      <a href="https://panjiachen.github.io/vue-element-admin-site/feature/component/excel.html" target="_blank"
-         style="margin-left:15px;">
+      <a
+        href="https://panjiachen.github.io/vue-element-admin-site/feature/component/excel.html"
+        target="_blank"
+        style="margin-left:15px;"
+      >
         <el-tag type="info">Documentation</el-tag>
       </a>
     </div>
@@ -38,7 +46,7 @@
       </el-table-column>
       <el-table-column align="center" label="Date" width="220">
         <template slot-scope="scope">
-          <i class="el-icon-time"/>
+          <i class="el-icon-time" />
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
@@ -47,8 +55,8 @@
 </template>
 
 <script>
-import {fetchList} from '@/api/article'
-import {parseTime} from '@/utils'
+import { fetchList } from '@/api/article'
+import { parseTime } from '@/utils'
 // options components
 import FilenameOption from './components/FilenameOption'
 import AutoWidthOption from './components/AutoWidthOption'
@@ -56,7 +64,7 @@ import BookTypeOption from './components/BookTypeOption'
 
 export default {
   name: 'ExportExcel',
-  components: {FilenameOption, AutoWidthOption, BookTypeOption},
+  components: { FilenameOption, AutoWidthOption, BookTypeOption },
   data() {
     return {
       list: null,

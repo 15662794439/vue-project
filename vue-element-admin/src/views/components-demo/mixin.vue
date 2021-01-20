@@ -64,8 +64,11 @@
             <span>图片hover效果</span>
           </div>
           <div class="component-item">
-            <pan-thumb width="100px" height="100px"
-                       image="https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191">
+            <pan-thumb
+              width="100px"
+              height="100px"
+              image="https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191"
+            >
               vue-element-admin
             </pan-thumb>
           </div>
@@ -91,7 +94,7 @@
             <span>hover text</span>
           </div>
           <div class="component-item">
-            <mallki class-name="mallki-text" text="vue-element-admin"/>
+            <mallki class-name="mallki-text" text="vue-element-admin" />
           </div>
         </el-card>
       </el-col>
@@ -104,7 +107,7 @@
             <span>Share</span>
           </div>
           <div class="component-item" style="height:420px;">
-            <dropdown-menu :items="articleList" style="margin:0 auto;" title="系列文章"/>
+            <dropdown-menu :items="articleList" style="margin:0 auto;" title="系列文章" />
           </div>
         </el-card>
       </el-col>
@@ -143,15 +146,15 @@ export default {
         title: ''
       },
       demoRules: {
-        title: [{required: true, trigger: 'change', validator: validate}]
+        title: [{ required: true, trigger: 'change', validator: validate }]
       },
       articleList: [
-        {title: '基础篇', href: 'https://juejin.im/post/59097cd7a22b9d0065fb61d2'},
-        {title: '登录权限篇', href: 'https://juejin.im/post/591aa14f570c35006961acac'},
-        {title: '实战篇', href: 'https://juejin.im/post/593121aa0ce4630057f70d35'},
-        {title: 'vue-admin-template 篇', href: 'https://juejin.im/post/595b4d776fb9a06bbe7dba56'},
-        {title: 'v4.0 篇', href: 'https://juejin.im/post/5c92ff94f265da6128275a85'},
-        {title: '优雅的使用 icon', href: 'https://juejin.im/post/59bb864b5188257e7a427c09'}
+        { title: '基础篇', href: 'https://juejin.im/post/59097cd7a22b9d0065fb61d2' },
+        { title: '登录权限篇', href: 'https://juejin.im/post/591aa14f570c35006961acac' },
+        { title: '实战篇', href: 'https://juejin.im/post/593121aa0ce4630057f70d35' },
+        { title: 'vue-admin-template 篇', href: 'https://juejin.im/post/595b4d776fb9a06bbe7dba56' },
+        { title: 'v4.0 篇', href: 'https://juejin.im/post/5c92ff94f265da6128275a85' },
+        { title: '优雅的使用 icon', href: 'https://juejin.im/post/59bb864b5188257e7a427c09' }
       ]
     }
   }

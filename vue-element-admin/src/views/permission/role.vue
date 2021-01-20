@@ -29,7 +29,7 @@
     <el-dialog :visible.sync="dialogVisible" :title="dialogType==='edit'?'Edit Role':'New Role'">
       <el-form :model="role" label-width="80px" label-position="left">
         <el-form-item label="Name">
-          <el-input v-model="role.name" placeholder="Role Name"/>
+          <el-input v-model="role.name" placeholder="Role Name" />
         </el-form-item>
         <el-form-item label="Desc">
           <el-input
@@ -61,8 +61,8 @@
 
 <script>
 import path from 'path'
-import {deepClone} from '@/utils'
-import {getRoutes, getRoles, addRole, deleteRole, updateRole} from '@/api/role'
+import { deepClone } from '@/utils'
+import { getRoutes, getRoles, addRole, deleteRole, updateRole } from '@/api/role'
 
 const defaultRole = {
   key: '',
@@ -170,13 +170,13 @@ export default {
         this.checkStrictly = false
       })
     },
-    handleDelete({$index, row}) {
+    handleDelete({ $index, row }) {
       this.$confirm('Confirm to remove the role?', 'Warning', {
         confirmButtonText: 'Confirm',
         cancelButtonText: 'Cancel',
         type: 'warning'
       })
-        .then(async () => {
+        .then(async() => {
           await deleteRole(row.key)
           this.rolesList.splice($index, 1)
           this.$message({
@@ -220,12 +220,12 @@ export default {
           }
         }
       } else {
-        const {data} = await addRole(this.role)
+        const { data } = await addRole(this.role)
         this.role.key = data.key
         this.rolesList.push(this.role)
       }
 
-      const {description, key, name} = this.role
+      const { description, key, name } = this.role
       this.dialogVisible = false
       this.$notify({
         title: 'Success',
@@ -252,7 +252,7 @@ export default {
 
       // Show parent if there are no child route to display
       if (showingChildren.length === 0) {
-        onlyOneChild = {...parent, path: '', noShowingChildren: true}
+        onlyOneChild = { ...parent, path: '', noShowingChildren: true }
         return onlyOneChild
       }
 

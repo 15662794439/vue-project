@@ -120,8 +120,12 @@
     </div>
     <!-- you can add element-ui's tooltip -->
     <el-tooltip placement="top" content="tooltip">
-      <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="50"
-                   transition-name="fade"/>
+      <back-to-top
+        :custom-style="myBackToTopStyle"
+        :visibility-height="300"
+        :back-position="50"
+        transition-name="fade"
+      />
     </el-tooltip>
   </div>
 </template>
@@ -131,7 +135,7 @@ import BackToTop from '@/components/BackToTop'
 
 export default {
   name: 'BackToTopDemo',
-  components: {BackToTop},
+  components: { BackToTop },
   data() {
     return {
       // customizable button style, show/hide critical point, return position

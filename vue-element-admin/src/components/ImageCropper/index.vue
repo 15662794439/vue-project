@@ -2,7 +2,7 @@
   <div v-show="value" class="vue-image-crop-upload">
     <div class="vicp-wrap">
       <div class="vicp-close" @click="off">
-        <i class="vicp-icon4"/>
+        <i class="vicp-icon4" />
       </div>
 
       <div v-show="step == 1" class="vicp-step1">
@@ -15,16 +15,16 @@
           @drop="handleChange"
         >
           <i v-show="loading != 1" class="vicp-icon1">
-            <i class="vicp-icon1-arrow"/>
-            <i class="vicp-icon1-body"/>
-            <i class="vicp-icon1-bottom"/>
+            <i class="vicp-icon1-arrow" />
+            <i class="vicp-icon1-body" />
+            <i class="vicp-icon1-bottom" />
           </i>
           <span v-show="loading !== 1" class="vicp-hint">{{ lang.hint }}</span>
           <span v-show="!isSupported" class="vicp-no-supported-hint">{{ lang.noSupported }}</span>
           <input v-show="false" v-if="step == 1" ref="fileinput" type="file" @change="handleChange">
         </div>
         <div v-show="hasError" class="vicp-error">
-          <i class="vicp-icon2"/>
+          <i class="vicp-icon2" />
           {{ errorMsg }}
         </div>
         <div class="vicp-operate">
@@ -58,8 +58,8 @@
                 @mouseup="createImg"
                 @mouseout="createImg"
               >
-              <div :style="sourceImgShadeStyle" class="vicp-img-shade vicp-img-shade-1"/>
-              <div :style="sourceImgShadeStyle" class="vicp-img-shade vicp-img-shade-2"/>
+              <div :style="sourceImgShadeStyle" class="vicp-img-shade vicp-img-shade-1" />
+              <div :style="sourceImgShadeStyle" class="vicp-img-shade vicp-img-shade-2" />
             </div>
 
             <div class="vicp-range">
@@ -113,14 +113,14 @@
         <div class="vicp-upload">
           <span v-show="loading === 1" class="vicp-loading">{{ lang.loading }}</span>
           <div class="vicp-progress-wrap">
-            <span v-show="loading === 1" :style="progressStyle" class="vicp-progress"/>
+            <span v-show="loading === 1" :style="progressStyle" class="vicp-progress" />
           </div>
           <div v-show="hasError" class="vicp-error">
-            <i class="vicp-icon2"/>
+            <i class="vicp-icon2" />
             {{ errorMsg }}
           </div>
           <div v-show="loading === 2" class="vicp-success">
-            <i class="vicp-icon3"/>
+            <i class="vicp-icon3" />
             {{ lang.success }}
           </div>
         </div>
@@ -129,7 +129,7 @@
           <a @click="off" @mousedown="ripple">{{ lang.btn.close }}</a>
         </div>
       </div>
-      <canvas v-show="false" ref="canvas" :width="width" :height="height"/>
+      <canvas v-show="false" ref="canvas" :width="width" :height="height" />
     </div>
   </div>
 </template>
@@ -226,7 +226,7 @@ export default {
     }
   },
   data() {
-    const {imgFormat, langType, langExt, width, height} = this
+    const { imgFormat, langType, langExt, width, height } = this
     let isSupported = true
     const allowImgFormat = ['jpg', 'png']
     const tempImgFormat =
@@ -308,14 +308,14 @@ export default {
   computed: {
     // 进度条样式
     progressStyle() {
-      const {progress} = this
+      const { progress } = this
       return {
         width: progress + '%'
       }
     },
     // 原图样式
     sourceImgStyle() {
-      const {scale, sourceImgMasking} = this
+      const { scale, sourceImgMasking } = this
       const top = scale.y + sourceImgMasking.y + 'px'
       const left = scale.x + sourceImgMasking.x + 'px'
       return {
@@ -332,7 +332,7 @@ export default {
     },
     // 原图蒙版属性
     sourceImgMasking() {
-      const {width, height, ratio, sourceImgContainer} = this
+      const { width, height, ratio, sourceImgContainer } = this
       const sic = sourceImgContainer
       const sicRatio = sic.width / sic.height // 原图容器宽高比
       let x = 0
@@ -360,7 +360,7 @@ export default {
     },
     // 原图遮罩样式
     sourceImgShadeStyle() {
-      const {sourceImgMasking, sourceImgContainer} = this
+      const { sourceImgMasking, sourceImgContainer } = this
       const sic = sourceImgContainer
       const sim = sourceImgMasking
       const w =
@@ -373,7 +373,7 @@ export default {
       }
     },
     previewStyle() {
-      const {ratio, previewContainer} = this
+      const { ratio, previewContainer } = this
       const pc = previewContainer
       let w = pc.width
       let h = pc.height
@@ -455,7 +455,7 @@ export default {
     /* ---------------------------------------------------------------*/
     // 检测选择的文件是否合适
     checkFile(file) {
-      const {lang, maxSize} = this
+      const { lang, maxSize } = this
       // 仅限图片
       if (file.type.indexOf('image') === -1) {
         this.hasError = true
@@ -547,7 +547,7 @@ export default {
         return false
       }
       const et = e.targetTouches ? e.targetTouches[0] : e
-      const {sourceImgMouseDown, scale} = this
+      const { sourceImgMouseDown, scale } = this
       const simd = sourceImgMouseDown
       simd.mX = et.screenX
       simd.mY = et.screenY
@@ -564,7 +564,7 @@ export default {
       }
       const et = e.targetTouches ? e.targetTouches[0] : e
       const {
-        sourceImgMouseDown: {on, mX, mY, x, y},
+        sourceImgMouseDown: { on, mX, mY, x, y },
         scale,
         sourceImgMasking
       } = this
@@ -593,13 +593,13 @@ export default {
     },
     // 按钮按下开始向右旋转
     startRotateRight(e) {
-      const {scale} = this
+      const { scale } = this
       scale.rotateRight = true
       const rotate = () => {
         if (scale.rotateRight) {
           const degree = ++scale.degree
           this.createImg(degree)
-          setTimeout(function () {
+          setTimeout(function() {
             rotate()
           }, 60)
         }
@@ -608,13 +608,13 @@ export default {
     },
     // 按钮按下开始向左旋转
     startRotateLeft(e) {
-      const {scale} = this
+      const { scale } = this
       scale.rotateLeft = true
       const rotate = () => {
         if (scale.rotateLeft) {
           const degree = --scale.degree
           this.createImg(degree)
-          setTimeout(function () {
+          setTimeout(function() {
             rotate()
           }, 60)
         }
@@ -623,19 +623,19 @@ export default {
     },
     // 停止旋转
     endRotate() {
-      const {scale} = this
+      const { scale } = this
       scale.rotateLeft = false
       scale.rotateRight = false
     },
     // 按钮按下开始放大
     startZoomAdd(e) {
-      const {scale} = this
+      const { scale } = this
       scale.zoomAddOn = true
       const zoom = () => {
         if (scale.zoomAddOn) {
           const range = scale.range >= 100 ? 100 : ++scale.range
           this.zoomImg(range)
-          setTimeout(function () {
+          setTimeout(function() {
             zoom()
           }, 60)
         }
@@ -648,13 +648,13 @@ export default {
     },
     // 按钮按下开始缩小
     startZoomSub(e) {
-      const {scale} = this
+      const { scale } = this
       scale.zoomSubOn = true
       const zoom = () => {
         if (scale.zoomSubOn) {
           const range = scale.range <= 0 ? 0 : --scale.range
           this.zoomImg(range)
-          setTimeout(function () {
+          setTimeout(function() {
             zoom()
           }, 60)
         }
@@ -663,7 +663,7 @@ export default {
     },
     // 按钮松开或移开取消缩小
     endZoomSub(e) {
-      const {scale} = this
+      const { scale } = this
       scale.zoomSubOn = false
     },
     zoomChange(e) {
@@ -671,7 +671,7 @@ export default {
     },
     // 缩放原图
     zoomImg(newRange) {
-      const {sourceImgMasking, scale} = this
+      const { sourceImgMasking, scale } = this
       const {
         maxWidth,
         maxHeight,
@@ -722,8 +722,8 @@ export default {
       const {
         mime,
         sourceImg,
-        scale: {x, y, width, height, degree},
-        sourceImgMasking: {scale}
+        scale: { x, y, width, height, degree },
+        sourceImgMasking: { scale }
       } = this
       const canvas = this.$refs.canvas
       const ctx = canvas.getContext('2d')
@@ -750,7 +750,7 @@ export default {
       this.createImgUrl = canvas.toDataURL(mime)
     },
     prepareUpload() {
-      const {url, createImgUrl, field, ki} = this
+      const { url, createImgUrl, field, ki } = this
       this.$emit('crop-success', createImgUrl, field, ki)
       if (typeof url === 'string' && url) {
         this.upload()

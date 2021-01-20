@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <switch-roles @change="handleRolesChange"/>
+    <switch-roles @change="handleRolesChange" />
     <div :key="key" style="margin-top:30px;">
       <div>
         <span v-permission="['admin']" class="permission-alert">
@@ -74,8 +74,8 @@ import SwitchRoles from './components/SwitchRoles'
 
 export default {
   name: 'DirectivePermission',
-  components: {SwitchRoles},
-  directives: {permission},
+  components: { SwitchRoles },
+  directives: { permission },
   data() {
     return {
       key: 1 // 为了能每次切换权限的时候重新初始化指令

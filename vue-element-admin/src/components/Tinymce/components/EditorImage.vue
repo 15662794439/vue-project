@@ -1,7 +1,12 @@
 <template>
   <div class="upload-container">
-    <el-button :style="{background:color,borderColor:color}" icon="el-icon-upload" size="mini" type="primary"
-               @click=" dialogVisible=true">
+    <el-button
+      :style="{background:color,borderColor:color}"
+      icon="el-icon-upload"
+      size="mini"
+      type="primary"
+      @click=" dialogVisible=true"
+    >
       upload
     </el-button>
     <el-dialog :visible.sync="dialogVisible">
@@ -92,8 +97,8 @@ export default {
       return new Promise((resolve, reject) => {
         const img = new Image()
         img.src = _URL.createObjectURL(file)
-        img.onload = function () {
-          _self.listObj[fileName] = {hasSuccess: false, uid: file.uid, width: this.width, height: this.height}
+        img.onload = function() {
+          _self.listObj[fileName] = { hasSuccess: false, uid: file.uid, width: this.width, height: this.height }
         }
         resolve(true)
       })

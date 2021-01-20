@@ -1,13 +1,25 @@
 <template>
   <div class="app-container">
-    <el-input v-model="filename" placeholder="Please enter the file name (default excel-list)" style="width:350px;"
-              prefix-icon="el-icon-document"/>
-    <el-button :loading="downloadLoading" style="margin-bottom:20px" type="primary" icon="el-icon-document"
-               @click="handleDownload">
+    <el-input
+      v-model="filename"
+      placeholder="Please enter the file name (default excel-list)"
+      style="width:350px;"
+      prefix-icon="el-icon-document"
+    />
+    <el-button
+      :loading="downloadLoading"
+      style="margin-bottom:20px"
+      type="primary"
+      icon="el-icon-document"
+      @click="handleDownload"
+    >
       Export Selected Items
     </el-button>
-    <a href="https://panjiachen.github.io/vue-element-admin-site/feature/component/excel.html" target="_blank"
-       style="margin-left:15px;">
+    <a
+      href="https://panjiachen.github.io/vue-element-admin-site/feature/component/excel.html"
+      target="_blank"
+      style="margin-left:15px;"
+    >
       <el-tag type="info">Documentation</el-tag>
     </a>
     <el-table
@@ -20,7 +32,7 @@
       highlight-current-row
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" align="center"/>
+      <el-table-column type="selection" align="center" />
       <el-table-column align="center" label="Id" width="95">
         <template slot-scope="scope">
           {{ scope.$index }}
@@ -43,7 +55,7 @@
       </el-table-column>
       <el-table-column align="center" label="PDate" width="220">
         <template slot-scope="scope">
-          <i class="el-icon-time"/>
+          <i class="el-icon-time" />
           <span>{{ scope.row.display_time }}</span>
         </template>
       </el-table-column>
@@ -52,7 +64,7 @@
 </template>
 
 <script>
-import {fetchList} from '@/api/article'
+import { fetchList } from '@/api/article'
 
 export default {
   name: 'SelectExcel',
